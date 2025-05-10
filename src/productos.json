@@ -1,0 +1,48 @@
+{
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "CENTRO DE MESA",
+        "precio": 8500,
+        "categoria": "Etiquetas y Stickers",
+        "image": "./src/image/10.png"
+      },
+      {
+        "id": 2,
+        "nombre": "CENTRO DE MESA",
+        "precio": 10000,
+        "categoria": "Etiquetas y Stickers",
+        "image": "./src/image/9.jpg"
+      },
+      {
+        "id": 3,
+        "nombre": "CENTRO DE MESA",
+        "precio": 12000,
+        "categoria": "Etiquetas y Stickers",
+        "image": "./src/image/11.jpg"
+      },
+      {
+        "id": 4,
+        "nombre": "CENTRO DE MESA",
+        "precio": 15000,
+        "categoria": "Etiquetas y Stickers",
+        "image": "./src/image/12.png"
+      },
+      {
+        "id": 1,
+        "nombre": "CENTRO DE MESA",
+        "precio": 18500,
+        "categoria": "Etiquetas y Stickers",
+        "image": "./src/image/13.png"
+      }
+    ],
+
+    "categories": [
+      "Papelería",
+      "Etiquetas y Stickers",
+      "Golosinas personalizadas",
+      "Souvenirs",
+      "Digitales",
+      "Archivos digitales"
+    ]
+  }
