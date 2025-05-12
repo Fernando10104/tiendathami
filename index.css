@@ -30,6 +30,11 @@ body {
   padding: 10px 15px;
 
 }
+.div-header{
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f6d7d5;
+}
 .header-div-2{
   display: flex; 
   justify-content: space-around; 
