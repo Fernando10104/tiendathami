@@ -35,3 +35,10 @@ function cargarproductos(productos){
 }
 
 // cargarproductos is now called with the productos array from the fetch response
+
+const contenedor = document.querySelector("#contenedor-producto");
+// funcion de mostrar productos detallados
+function mostrarProducto(id){
+    const producto = productos.find(producto => producto.id === id);
+    const contenedor = document.querySelector("#contenedor-producto");
+}

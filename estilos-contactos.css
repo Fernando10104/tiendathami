@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat','Segoe UI', sans-serif;
+  background-color: #f6d7d5;
+  color: #333;
+}
+
+.contenedor-principal {
+  background-color: #f6d7d5;
+  box-shadow: #fcb1b1 0px 0px 10px;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+h1 {
+  color: #b03b3b;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+.info-contacto {
+  margin: 20px 0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.boton-whatsapp {
+  display: inline-block;
+  background-color: #25d366;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.boton-whatsapp:hover {
+  background-color: #1ebe5d;
+}
