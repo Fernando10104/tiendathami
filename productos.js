@@ -1,5 +1,5 @@
 const opciones = {
-  keys: ['nombre'],
+  keys: ['nombre', 'categoria'],
   threshold: 0.4
 };
 
@@ -17,25 +17,37 @@ fetch("./src/productos.json")
         const productos = data.productos;
         cargarproductos(productos);
         const fuse = new Fuse(productos, opciones);
+
         const input = document.getElementById("search");
-        input.addEventListener("input", () => {
-        let texto = input.value.trim();
+        const categoria = document.getElementById("categoria");
+
+        input.addEventListener("input", actulizarproductos);
+        categoria.addEventListener("change", actulizarproductos);
+
         
-        if (texto === ""){
-            cargarproductos(productos);
-            console.log(productos,"lololololololo")
-            return;
 
+        function actulizarproductos (){
+            const input = document.getElementById("search");
+            const categoria = document.getElementById("categoria");
+
+            let categoria2 = categoria.value.trim();
+            let texto = input.value.trim();
+            const query = `${texto} ${categoria2}`;
             
-        }
-
-            const resultado = fuse.search(texto);
-            const filtrados = resultado.map(r => r.item);
             
-            cargarproductos(filtrados);
+            if (texto === "" && categoria2 === ""){
+                cargarproductos(productos);
+                console.log(productos,"lololololololo")
+                return; 
+            }
+
+                const resultado = fuse.search(query);
+                const filtrados = resultado.map(r => r.item);
+                
+                cargarproductos(filtrados);
 
 
-        });
+            };
         window.addEventListener("pageshow", function (event) {
             const searchInput = document.getElementById("search");
             searchInput.blur();
@@ -81,7 +93,3 @@ function cargarproductos(productos){
     })
 
 }
-
-
-
-
