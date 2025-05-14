@@ -2,6 +2,13 @@ const opciones = {
   keys: ['nombre'],
   threshold: 0.4
 };
+
+
+window.addEventListener("pageshow", function (event) {
+
+    cargarproductos(productos); // Guardá una copia antes
+
+});
 // Cargar los productos desde el archivo JSON
 fetch("./src/productos.json")
     .then(response => response.json())
@@ -54,6 +61,7 @@ function cargarproductos(productos){
         div.onclick = () => {
             document.getElementById("search").value = " ";
             cargarproductos(productos);
+            
             window.location.href = `producto-detallado.html?id=${item.id}`;
             
         };
