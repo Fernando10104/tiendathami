@@ -32,8 +32,6 @@ fetch("./src/productos.json")
     .catch(error => console.error('Error al cargar los productos:', error));
 
 
-/*loooooooooooooooooooooooooooooooooooooooooo
-ppppppppppppppppppppp*/
 
 
 
@@ -54,7 +52,8 @@ function cargarproductos(productos){
             </div>
         `;
         div.onclick = () => {
-            document.getElementById("search").value = "";
+            document.getElementById("search").value = " ";
+            cargarproductos(productos);
             window.location.href = `producto-detallado.html?id=${item.id}`;
             
         };
