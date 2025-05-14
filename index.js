@@ -11,7 +11,7 @@ fetch("./src/productos.json")
         const fuse = new Fuse(productos, opciones);
         const input = document.getElementById("search");
         input.addEventListener("input", () => {
-        const texto = input.value.trim();
+        let texto = input.value.trim();
         if (texto === ""){
             cargarproductos(productos);
             console.log(productos,"lololololololo")
@@ -22,7 +22,9 @@ fetch("./src/productos.json")
 
             const resultado = fuse.search(texto);
             const filtrados = resultado.map(r => r.item);
+            
             cargarproductos(filtrados);
+
 
         });
      
@@ -30,7 +32,8 @@ fetch("./src/productos.json")
     .catch(error => console.error('Error al cargar los productos:', error));
 
 
-
+/*loooooooooooooooooooooooooooooooooooooooooo
+ppppppppppppppppppppp*/
 
 
 
@@ -51,7 +54,9 @@ function cargarproductos(productos){
             </div>
         `;
         div.onclick = () => {
+            document.getElementById("search").value = "";
             window.location.href = `producto-detallado.html?id=${item.id}`;
+            
         };
         contenedorproductos.appendChild(div);
     })

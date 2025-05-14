@@ -55,9 +55,13 @@ function mostrarProducto(productos,id){
                         <div class="descripcion-producto">
                                 <h1>Detalles:</h1>
                                 <p>${producto.detalles}</p>
-                                
+                    
 
-                    </div> `
+                    </div> 
+                    
+                    <footer>
+                        <p>© 2025 Thamary Creaciones. Todos los derechos reservados.</p>
+                    </footer>`
                     ;
                     contenedor_detalles.appendChild(div);
  }

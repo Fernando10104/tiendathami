@@ -198,18 +198,6 @@ nav ul li a:hover {
 .buscador-btn:hover svg {
   color: #000;
 }
-
-/*estilo div grip
-`
-      <img class="producto-imagen" src="${producto.image}" alt="${producto.nombre}">
-      <div class="producto-info">
-          <h3 class="producto-nombre">${producto.nombre}</h3>
-          <p>Precio: $${producto.precio}</p>
-          <button class="btn btn-primary" id="${producto.id}">Agregar al carrito</button>
-      </div>
-`
-
-*/
 .contenedor-productos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
