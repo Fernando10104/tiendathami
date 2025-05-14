@@ -7,7 +7,7 @@
     <link rel="icon" href=".\src\logo\icono.png" type="image/png" sizes="32x32">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 
 </head>
 
@@ -25,7 +25,7 @@
                               type="text" 
                               placeholder="Buscar" 
                               class="buscador-input" 
-                              id="inputBusqueda"
+                              id="search"
                             >
                             <button class="buscador-btn" onclick="buscar()">
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -69,6 +69,11 @@
                 
 
             </div>
+
+            <!-- zona detalles de producto-->
+            <div id="contenedor-productos-descripcion" class="contenedor-productos-descripcion" >
+                
+            </div>
         </section>
 
         <footer>
@@ -78,6 +83,6 @@
 
     </div>
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 <script src="./index.js" ></script>
 </html>

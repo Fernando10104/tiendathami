@@ -3,39 +3,61 @@
       {
         "id": 1,
         "nombre": "CENTRO DE MESA",
-        "precio": 8500,
+        "nombre2": "ECONÓMICO",
+        "precio": "8.500",
+        "cantidad": "1 unidad",
         "categoria": "Etiquetas y Stickers",
-        "image": "./src/image/10.png"
+        "image": "./src/image/10.png",
+        "descripcion": "<br> • BASE DE ISOPOR <br> • CORRUGADO <br> • CELOFÁN <br> • APLIQUE ACORDE A LA TEMÁTICA",
+        "detalles": " NO INCLUYE GOLOSINAS DENTRO, LA TEMÁTICA ES A ELECCIÓN, SE MUESTRAN LOS DISEÑOS ANTESDE LA IMPRESIÓN DEL MISMO"
       },
       {
-        "id": 2,
-        "nombre": "CENTRO DE MESA",
-        "precio": 10000,
-        "categoria": "Etiquetas y Stickers",
-        "image": "./src/image/9.jpg"
-      },
+      "id": 2,
+      "nombre": "CENTRO DE MESA",
+      "nombre2": "ECONÓMICO",
+      "precio": "10.000 ",
+      "cantidad": "1 unidad",
+      "categoria": "Papelería",
+      "image": "./src/image/9.jpg",
+      "descripcion": "<br> • TEMÁTICA A ELECCIÓN<br> • DISEÑO<br> • BASE DE CARTULINA DE 230 GR.<br> • APLIQUE DE LA TEMÁTICA ELEGIDA<br> • VIRUTAS",
+      "detalles": " NO INCLUYE GOLOSINAS DENTRO, LA TEMÁTICA ES A ELECCIÓN, SE MUESTRAN LOS DISEÑOS ANTESDE LA IMPRESIÓN DEL MISMO"
+    },
+    {
+      "id": 3,
+      "nombre": "CENTRO DE MESA",
+      "nombre2": "SENCILLO",
+      "precio": "12.000",
+      "cantidad": "1 unidad",
+      "categoria": "Etiquetas y Stickers",
+      "image": "./src/image/11.jpg",
+      "descripcion": " NO INCLUYE GOLOSINAS DENTRO, LA TEMÁTICA ES A ELECCIÓN, SE MUESTRAN LOS DISEÑOS ANTESDE LA IMPRESIÓN DEL MISMO",
+      "detalles": " NO INCLUYE GOLOSINAS DENTRO, LA TEMÁTICA ES A ELECCIÓN, SE MUESTRAN LOS DISEÑOS ANTESDE LA IMPRESIÓN DEL MISMO"
+    },
+    {
+      "id": 4,
+      "nombre": "CENTRO DE MESA",
+      "nombre2": "SEMI PREMIUM",
+      "precio": "15.000",
+      "cantidad": "5 unidades",
+      "categoria": "Souvenirs",
+      "image": "./src/image/12.png",
+      "descripcion": "<br> • TEMÁTICA A ELECCIÓN<br> • DISEÑO<br> • BASE DE CARTULINA DE 230 GR.<br> • APLIQUE DE LA TEMÁTICA ELEGIDA<br> • CAPAS, MOÑOS Y APLIQUES<br> • CERRADO POR ARRIBA, SE CARGA POR DEBAJO",
+      "detalles": " NO INCLUYE GOLOSINAS DENTRO, LA TEMÁTICA ES A ELECCIÓN, SE MUESTRAN LOS DISEÑOS ANTESDE LA IMPRESIÓN DEL MISMO"
+    },
       {
-        "id": 3,
-        "nombre": "CENTRO DE MESA",
-        "precio": 12000,
-        "categoria": "Etiquetas y Stickers",
-        "image": "./src/image/11.jpg"
-      },
-      {
-        "id": 4,
-        "nombre": "CENTRO DE MESA",
-        "precio": 15000,
-        "categoria": "Etiquetas y Stickers",
-        "image": "./src/image/12.png"
-      },
-      {
-        "id": 1,
-        "nombre": "CENTRO DE MESA",
-        "precio": 18500,
-        "categoria": "Etiquetas y Stickers",
-        "image": "./src/image/13.png"
-      }
+      "id": 5,
+      "nombre": "CENTRO DE MESA",
+      "nombre2": " PREMIUM",
+      "precio": "18.500",
+      "cantidad": "1 unidades",
+      "categoria": "Souvenirs",
+      "image": "./src/image/13.png",
+      "descripcion": "<br> • TEMÁTICA A ELECCIÓN<br> • DISEÑO<br> • BASE DE CARTULINA DE 230 GR.<br> • APLIQUE DE LA TEMÁTICA ELEGIDA<br> • VARIAS CAPAS, CAPAS DE MOÑOS Y APLIQUES<br> • CERRADO POR ARRIBA, SE CARGA POR DEBAJO",
+      "detalles": " NO INCLUYE GOLOSINAS DENTRO, LA TEMÁTICA ES A ELECCIÓN, SE MUESTRAN LOS DISEÑOS ANTESDE LA IMPRESIÓN DEL MISMO"
+    }
+
     ],
+    
 
     "categories": [
       "Papelería",
@@ -44,5 +66,6 @@
       "Souvenirs",
       "Digitales",
       "Archivos digitales"
-    ]
+    ],
+   "comentario" :["<br> • "]
   }
