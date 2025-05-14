@@ -5,7 +5,8 @@ const opciones = {
 
 
 window.addEventListener("pageshow", function (event) {
-
+    const searchInput = document.getElementById("search");
+    searchInput.blur();
     cargarproductos(productos); // Guardá una copia antes
 
 });
@@ -59,7 +60,9 @@ function cargarproductos(productos){
             </div>
         `;
         div.onclick = () => {
-            document.getElementById("search").value = " ";
+            const searchInput = document.getElementById("search");
+            searchInput.value = "";
+            searchInput.blur();
             cargarproductos(productos);
             
             window.location.href = `producto-detallado.html?id=${item.id}`;
