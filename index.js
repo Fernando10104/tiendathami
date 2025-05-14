@@ -4,12 +4,7 @@ const opciones = {
 };
 
 
-window.addEventListener("pageshow", function (event) {
-    const searchInput = document.getElementById("search");
-    searchInput.blur();
-    cargarproductos(productos); // Guardá una copia antes
 
-});
 // Cargar los productos desde el archivo JSON
 fetch("./src/productos.json")
     .then(response => response.json())
@@ -20,6 +15,7 @@ fetch("./src/productos.json")
         const input = document.getElementById("search");
         input.addEventListener("input", () => {
         let texto = input.value.trim();
+        
         if (texto === ""){
             cargarproductos(productos);
             console.log(productos,"lololololololo")
@@ -32,6 +28,14 @@ fetch("./src/productos.json")
             const filtrados = resultado.map(r => r.item);
             
             cargarproductos(filtrados);
+
+
+        });
+        window.addEventListener("pageshow", function (event) {
+            const searchInput = document.getElementById("search");
+            searchInput.blur();
+            cargarproductos(productos); // Guardá una copia antes
+            console.log("kore")
 
 
         });
