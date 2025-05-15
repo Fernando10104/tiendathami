@@ -16,6 +16,17 @@
 .boton-whatsapp:hover {
   background-color: #1ebe5d;
 }
+.btn-link {
+    border-radius: .5rem;
+    border: #f5cbc9 10px solid;
+    background-color: #f5cbc9;
+    box-shadow: #fcb1b1 0px 0px 10px;
+    gap: .5rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
 
 .icono-whatsapp {
   width: 24px;
@@ -238,18 +249,19 @@ nav ul li a:hover {
 
 
 @media screen and (max-width: 720px) {
-  .contenedor-principal {
-    max-width: 100%;
-    margin: 0; /* elimina el margen automático lateral */
-    padding: 0 10px; /* opcional: agrega algo de padding interno */
-  }
-
+  
   * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat','Segoe UI', sans-serif;
   }
+  .contenedor-principal {
+    max-width: 100%;
+    margin: 0; /* elimina el margen automático lateral */
+    padding: 0 10px; /* opcional: agrega algo de padding interno */
+  }
+
   /* Estilo general del body */
   body {
     margin: 0;
@@ -302,11 +314,10 @@ nav ul li a:hover {
     order: 3;
   }
   .div-logo{
-    order: 1;
+    order: 2;
   }
   .div-menu-header{
-    display: none;
-    order: 2;
+    order: 1;
   }
   /*tamaño letras*/
   .container2 h2{
@@ -316,39 +327,66 @@ nav ul li a:hover {
     font-size: 16px;
   }
 
+ .contenedor-productos {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  padding: 0px;
+ } 
 
-
-
-  .contenedor-productos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 2px;
+  .contenedor-img-producto {
+    width: auto;
+    height: 270px;
+    border-radius: 1rem;
+    margin-top: 15px;
+    display: flex; /* Agregado */
+    justify-content: center; /* Centra imagen horizontalmente */
+    align-items: center;     /* Centra imagen verticalmente */
+    border: #fcb1b1 2px solid;
+    box-shadow: #fcb1b1 0px 0px 10px;
+    right: 4px;
   }
-  .producto {
-    height: 260px;
-    width: 100%;
+  .img-producto{
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      object-fit: cover;
+  }
+
+
+.info-producto-destalles{
+    gap: 18px;
+    width: auto;
+    height: auto;
+    margin-left: 0rem;
+}
+.info-producto-destalles ul{
+    list-style: none;
+    padding: 0;
+    margin-left: 15px;
+}
+.precio-detalles{
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+}
+.descripcion-producto{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f6d7d5;
-    border-radius: 1rem;
-    padding: 2px;
-    box-shadow: #fcb1b1 0px 0px 10px;
-    margin-bottom: 10px;
-  }
-  .producto-imagen {
-    width: 100%;
-    height: 65%;
-    border-radius: 8px;
-    border-bottom: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    position: relative;
-    display: flex;
-
-  }
+    align-items: baseline;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
   .producto-info {
     margin: 0;
     width: 100%;
@@ -383,5 +421,54 @@ nav ul li a:hover {
     border: #fcb1b1 5px solid;
     border-radius: 16px;
     cursor: pointer;
+  }
+}
+/*prueba de menu raro*/
+.menu-toggle {
+  display: none;
+  background-color: #fcb1b1;
+  color: #333;
+  font-size: 22px;
+  padding: 8.5px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+@media screen and (max-width: 720px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: -22px;
+  }
+
+  nav.menu {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    background-color: #f6d7d5;
+    padding: 10px 0;
+    margin-top: 3.3rem;
+    box-shadow: #fcb1b1 0px 4px 8px;
+    border-radius: 0 0 12px 12px;
+  }
+  .nav.menu ul li:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+  nav.menu.active {
+    display: flex;
+  }
+
+  nav.menu ul {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  nav.menu ul li a {
+    font-size: 16px;
   }
 }

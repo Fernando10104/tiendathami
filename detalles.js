@@ -1,3 +1,11 @@
+const toggleButton = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+
+toggleButton.addEventListener('click', () => {
+menu.classList.toggle('active');
+});
+
+
 // Cargar los productos desde el archivo JSON
 fetch("./src/productos.json")
     .then(response => response.json())
