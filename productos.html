@@ -63,14 +63,25 @@
         <hr style="height: 1px; background-color: #ffeeee; border: none; width: 100%;">
         <section>
             <div class="container2">
-                <div>
-                <h1>PRODUCTOS</h1>
-                <label for="categoria">Categoría:</label>
-                <select id="categoria" name="categoria" >
-                <option value="">TODOS</option>
-                <option value="CENTRO-DE-MESA">CENTROS DE MESA</option>
-                <option value="PERSONALIZADOS-DULCES">DULCES PERSONALIZADOS</option>
-                </select>
+                <div style="display: flex; justify-content: center; flex-direction: column;">
+                    <h1>PRODUCTOS</h1>
+                    <div>
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria" >
+                    <option value="">TODOS</option>
+                    <option value="CENTRO-DE-MESA">CENTROS DE MESA</option>
+                    <option value="PERSONALIZADOS-DULCES">DULCES PERSONALIZADOS</option>
+                    </select>
+                    </div>
+                    
+                    <div class="ordenarprecio">
+                    <label for="price">ORDENAR POR</label>
+                    <select id="price" name="price" >
+                    <option value="MENORAMAYOR">MENOR A MAYOR</option>
+                    <option value="MAYORAMENOR">MAYOR A MENOR</option>
+                    </select>
+                    </div>
+
                 </div>
 
 

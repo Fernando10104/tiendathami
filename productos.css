@@ -51,6 +51,26 @@ option{
     
 }
 
+.ordenarprecio select{
+  background-color: #f6d7d5;
+    font-size: 10px;
+    height: 28px;
+    size: 12px;
+    width: auto;
+    color: #333;
+    border: #fcb1b1 2px solid;
+    box-shadow: #fcb1b1 0px 0px 10px;
+}
+.ordenarprecio option{
+  background-color: #f6d7d5;
+  color: #333;
+  font-size: 12px;
+}
+.ordenarprecio label{
+  font-size: 17px;
+  margin-left: 29px;
+}
+
 footer {
   background-color: #f6d7d5;
   padding: 20px;
@@ -314,6 +334,7 @@ nav ul li a:hover {
 
 
 @media screen and (max-width: 720px) {
+  
   .contenedor-principal {
     max-width: 100%;
     margin: 0; /* elimina el margen automático lateral */
@@ -390,7 +411,14 @@ nav ul li a:hover {
   .container2 p{
     font-size: 16px;
   }
-
+  .ordenarprecio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: .8rem;
+  }
 
 
 

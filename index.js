@@ -64,8 +64,9 @@ function cargarproductos(productos){
             <img class="producto-imagen" src="${item.image}" alt="${item.nombre}">
             <div class="producto-info">
                 <h3 class="producto-nombre">${item.nombre}</h3>
+                <p>Tipo : ${item.nombre2}</p>
                 <p>Precio: ${item.precio} Gs.</p>
-                <button class="btn-primary" id="${item.id}">Agregar al carrito</button>
+                
             </div>
         `;
         div.onclick = () => {
