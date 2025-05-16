@@ -57,7 +57,7 @@
     },
       {
       "id": 6,
-      "nombre": " PERSONALIZADOS-DULCES",
+      "nombre": " DULCES PERSONALIZADOS",
       "nombre2": " COMBO 1",
       "precio": "170.000",
       "cantidad": "30 UNIDADES",
@@ -68,7 +68,7 @@
     },
       {
       "id": 7,
-      "nombre": " PERSONALIZADOS DULCES",
+      "nombre": " DULCES PERSONALIZADOS",
       "nombre2": " COMBO 2",
       "precio": "200.000",
       "cantidad": "50 UNIDADES",
@@ -79,7 +79,7 @@
     },
       {
       "id": 8,
-      "nombre": " PERSONALIZADOS DULCES",
+      "nombre": " DULCES PERSONALIZADOS",
       "nombre2": " COMBO 3",
       "precio": "300.000",
       "cantidad": "100 UNIDADES",
@@ -90,7 +90,7 @@
     },
       {
       "id": 9,
-      "nombre": " PERSONALIZADOS DULCES",
+      "nombre": " DULCES PERSONALIZADOS",
       "nombre2": " COMBO 4",
       "precio": "360.000",
       "cantidad": "120 UNIDADES",

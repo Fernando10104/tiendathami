@@ -52,7 +52,7 @@ function mostrarProducto(productos,id){
                         <hr style="height: 3px; background-color: #f5cbc9; border: none; width: 350px; margin: 5px 0;">
                         <p class="precio-detalles">Precio: ${producto.precio} Gs</p>
                         <!-- Botón de WhatsApp -->
-                        <a href="https://wa.me/595985692386" target="_blank" class="boton-whatsapp">
+                        <a href="https://wa.me/595994791449?text=Hola quiero hacer un pedido de: ${producto.nombre}, el ${producto.nombre2}. Precio: ${producto.precio} gs  " target="_blank" class="boton-whatsapp">
                         <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" class="icono-whatsapp">
                         Hacer el pedido
                         </a>

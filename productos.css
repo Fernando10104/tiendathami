@@ -67,7 +67,7 @@ option{
   font-size: 12px;
 }
 .ordenarprecio label{
-  font-size: 17px;
+  font-size: 21px;
   margin-left: 29px;
 }
 
@@ -419,6 +419,10 @@ nav ul li a:hover {
     margin-bottom: 1rem;
     margin-top: .8rem;
   }
+  .ordenarprecio label {
+    font-size: 19px;
+    margin-left: 4px;
+}
 
 
 

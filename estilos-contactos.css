@@ -21,7 +21,15 @@
     transform: scale(1.1);
   }
 
-
+.Contenedor-contacto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: .5rem;
+    background-color: white;
+    margin: 1.4rem;
+    border-radius: 1rem;
+  }
 
 * {
   margin: 0;
@@ -117,6 +125,17 @@ nav ul li a {
 
 nav ul li a:hover {
   color: #fcb1b1;
+}
+.btn-link {
+  border-radius: .5rem;
+  border: #f5cbc9 10px solid;
+  background-color: #f5cbc9;
+  box-shadow: #fcb1b1 0px 0px 10px;
+  gap: .5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
 
