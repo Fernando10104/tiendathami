@@ -1,8 +1,9 @@
+
 const opciones = {
   keys: ['nombre', 'categoria'],
   threshold: 0.4
 };
-
+const boton = document.getElementById("btn-cargar");
 const toggleButton = document.getElementById('menu-toggle');
 const menu = document.getElementById('menu');
 
@@ -10,13 +11,18 @@ toggleButton.addEventListener('click', () => {
 menu.classList.toggle('active');
 });
 
+
+let productos = [];
+let indiceInicio = 0;
+const cantidadPorCarga = 10;
+
 // Cargar los productos desde el archivo JSON
 fetch("./src/productos.json")
     .then(response => response.json())
     .then(data => {
-        const productos = data.productos;
+        productos = data.productos;
         cargarproductos(productos);
-        const fuse = new Fuse(productos, opciones);
+        
 
         const input = document.getElementById("search");
         const categoria = document.getElementById("categoria");
@@ -29,7 +35,7 @@ fetch("./src/productos.json")
         input.addEventListener("input", actulizarproductos);
         categoria.addEventListener("change", actulizarproductos);
         price.addEventListener("change", actulizarproductos);
-        
+        const fuse = new Fuse(productos, opciones);
 
         function actulizarproductos (){
             const input = document.getElementById("search");
@@ -62,11 +68,11 @@ fetch("./src/productos.json")
 
 
 
-        window.addEventListener("pageshow", function (event) {
-            const searchInput = document.getElementById("search");
-            searchInput.blur();
-            cargarproductos(productos); // Guardá una copia antes
-        });
+    window.addEventListener("pageshow", function (event) {
+        const searchInput = document.getElementById("search");
+        searchInput.blur();
+        cargarproductos(productos); // Guardá una copia antes
+    });
      
     }})
     .catch(error => console.error('Error al cargar los productos:', error));
@@ -78,13 +84,16 @@ fetch("./src/productos.json")
 const contenedorproductos = document.querySelector("#contenedor-productos");
 
 function cargarproductos(productos){
-    contenedorproductos.innerHTML = ""; // limpiar lo anterior
-    productos.forEach( item  => {
+    
+    console.log("comprobando producto en cargar productos ", productos)
+    const nuevosProductos = productos.slice(indiceInicio, indiceInicio + cantidadPorCarga);
+    console.log(nuevosProductos, "nuevos productos log")
+    nuevosProductos.forEach( item  => {
     const div = document.createElement("div");
     div.classList.add("producto");
     div.innerHTML = `
 
-        <img class="producto-imagen" src="${item.image}" alt="${item.nombre}">
+        <img class="producto-imagen" src="./src/image/${item.image}" alt="${item.nombre}">
         <div class="producto-info">
             <h3 class="producto-nombre">${item.nombre}</h3>
             <p>Tipo : ${item.nombre2}</p>
@@ -92,6 +101,7 @@ function cargarproductos(productos){
             
         </div>
     `;
+    
     div.onclick = () => {
         const searchInput = document.getElementById("search");
         searchInput.value = "";
@@ -101,11 +111,17 @@ function cargarproductos(productos){
         window.location.href = `producto-detallado.html?id=${item.id}`;
         
     };
+    
     contenedorproductos.appendChild(div);
-})
+    });
+    indiceInicio += cantidadPorCarga;
+    if (indiceInicio >= productos.length) {
+    boton.style.display = "none";
+    }
 
 }
-    
+boton.addEventListener("click", () => cargarproductos(productos));
+  
     
     
 

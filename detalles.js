@@ -36,7 +36,7 @@ function mostrarProducto(productos,id){
     div.classList.add("contenedor-productos");
     div.innerHTML =`
                     <div class="contenedor-img-producto">
-                        <img class="img-producto" src="${producto.image}" alt="${producto.nombre}">
+                        <img class="img-producto" src="./src/image/${producto.image}" alt="${producto.nombre}">
                     </div>
                     <div class="info-producto-destalles">
                         <hr style="height: 3px; background-color: #f5cbc9; border: none; width: 350px; margin: 5px 0;">

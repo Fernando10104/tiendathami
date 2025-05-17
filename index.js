@@ -61,7 +61,7 @@ function cargarproductos(productos){
         div.classList.add("producto");
         div.innerHTML = `
 
-            <img class="producto-imagen" src="${item.image}" alt="${item.nombre}">
+            <img class="producto-imagen" src="./src/image/${item.image}" alt="${item.nombre}">
             <div class="producto-info">
                 <h3 class="producto-nombre">${item.nombre}</h3>
                 <p>Tipo : ${item.nombre2}</p>

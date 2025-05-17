@@ -1,5 +1,28 @@
 /* Estilo para ₲ el contenedor de la página #f6d7d5  #fcb1b1  #f5cbc9 */
-
+  #btn-cargar {
+  display: flex;
+  align-items: center;
+  border-radius: .5rem;
+  border: #f5cbc9 10px solid;
+  background-color: #f5cbc9;
+  box-shadow: #fcb1b1 0px 0px 10px;
+  gap: .5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.btn-link {
+  border-radius: .5rem;
+  border: #f5cbc9 10px solid;
+  background-color: #f5cbc9;
+  box-shadow: #fcb1b1 0px 0px 10px;
+  gap: .5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
   #whatsapp-btn {
     position: fixed;
     bottom: 18px;

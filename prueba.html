@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carga de Productos</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f2f2;
+      padding: 40px;
+      max-width: 700px;
+      margin: auto;
+      color: #333;
+    }
+
+    h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    form {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-size: 1.1em;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 25px;
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1.1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    #preview {
+      margin-top: 15px;
+      max-width: 200px;
+      border-radius: 5px;
+      display: block;
+    }
+
+    pre {
+      background: #fafafa;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-top: 20px;
+      border-radius: 5px;
+      font-size: 1em;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Cargar nuevo producto</h2>
+  <form id="product-form">
+    <label>ID: <input type="number" id="id" required></label>
+    <label>Nombre: <input type="text" id="nombre" required></label>
+    <label>Nombre 2: <input type="text" id="nombre2"></label>
+    <label>Precio: <input type="text" id="precio" required></label>
+    <label>Cantidad: <input type="text" id="cantidad"></label>
+    <label>Categoría: <input type="text" id="categoria"></label>
+    <label>Descripción (separa con "•"): <textarea id="descripcion" rows="4"></textarea></label>
+    <label>Detalles: <textarea id="detalles" rows="3"></textarea></label>
+    <label>Imagen: <input type="file" id="image" accept="image/*"></label>
+    <img id="preview" src="#" alt="Vista previa de imagen" style="display:none;">
+    <button type="submit">Generar JSON</button>
+  </form>
+
+  <h3>Resultado JSON:</h3>
+  <pre id="output"></pre>
+
+  <script>
+    const form = document.getElementById('product-form');
+    const output = document.getElementById('output');
+    const imageInput = document.getElementById('image');
+    const preview = document.getElementById('preview');
+
+    let imagePath = "";
+
+    imageInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        imagePath = `${file.name}`;
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const rawDescripcion = document.getElementById('descripcion').value;
+      const partes = rawDescripcion.split("-").map(p => p.trim()).filter(Boolean);
+      const descripcionFormateada = partes.map(p => `<br> • ${p}`).join("");
+
+      const producto = {
+        id: parseInt(document.getElementById('id').value),
+        nombre: document.getElementById('nombre').value,
+        nombre2: document.getElementById('nombre2').value,
+        precio: document.getElementById('precio').value,
+        cantidad: document.getElementById('cantidad').value,
+        categoria: document.getElementById('categoria').value,
+        image: imagePath,
+        descripcion: descripcionFormateada,
+        detalles: document.getElementById('detalles').value
+      };
+
+      output.textContent = JSON.stringify(producto, null, 2);
+    });
+  </script>
+
+</body>
+</html>
