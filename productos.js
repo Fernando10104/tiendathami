@@ -1,7 +1,7 @@
 
 const opciones = {
   keys: ['nombre', 'categoria'],
-  threshold: 0.4
+  threshold: 0.37
 };
 const boton = document.getElementById("btn-cargar");
 const toggleButton = document.getElementById('menu-toggle');
@@ -11,116 +11,116 @@ toggleButton.addEventListener('click', () => {
 menu.classList.toggle('active');
 });
 
-
+let resultadoFinal = [];
 let productos = [];
 let indiceInicio = 0;
-const cantidadPorCarga = 10;
+const cantidadPorCarga = 8;
 
 // Cargar los productos desde el archivo JSON
-fetch("./src/productos.json")
-    .then(response => response.json())
-    .then(data => {
-        productos = data.productos;
-        cargarproductos(productos);
-        
+function actulizarproductos() {
+  const input = document.getElementById("search");
+  const categoria = document.getElementById("categoria");
+  const price = document.getElementById("price");
 
-        const input = document.getElementById("search");
-        const categoria = document.getElementById("categoria");
-        const price = document.getElementById("price")
-
-        // Establecer valor inicial y activar filtro inmediatamente
-        price.value = "MENORAMAYOR";
-        actulizarproductos();
-        
-        input.addEventListener("input", actulizarproductos);
-        categoria.addEventListener("change", actulizarproductos);
-        price.addEventListener("change", actulizarproductos);
-        const fuse = new Fuse(productos, opciones);
-
-        function actulizarproductos (){
-            const input = document.getElementById("search");
-            const categoria = document.getElementById("categoria");
-            const price = document.getElementById("price");
-
-            let price2 = price.value.trim();
-            let categoria2 = categoria.value.trim();
-            let texto = input.value.trim();
-            const query = `${texto} ${categoria2}`;
-            let resultadoFinal = [];
-            
-            if (texto === "" && categoria2 === ""){
-                resultadoFinal = [...productos];
-                console.log(productos,"array cargando todos los productos")
-            }else{
-                const resultado = fuse.search(query);
-                resultadoFinal = resultado.map(r => r.item);
-                console.log("array cargando productos filtrados")
-            };
-            if (price2 === "MENORAMAYOR"){
-                resultadoFinal.sort((a, b) => Number(a.precio) - Number(b.precio))
-
-            }else if (price2 === "MAYORAMENOR"){
-                resultadoFinal.sort((a, b) => Number(b.precio) - Number(a.precio))
+  let price2 = price.value.trim();
+  let categoria2 = categoria.value.trim();
+  let texto = input.value.trim();
+  const query = `${texto} ${categoria2}`;
   
-            };
-            cargarproductos(resultadoFinal);
 
+  if (texto === "" && categoria2 === "") {
+    resultadoFinal = [...productos];
+  } else {
+    const resultado = fuse.search(query);
+    resultadoFinal = resultado.map(r => r.item);
+  }
 
+  if (price2 === "MENORAMAYOR") {
+    resultadoFinal.sort((a, b) => Number(a.precio) - Number(b.precio));
+  } else if (price2 === "MAYORAMENOR") {
+    resultadoFinal.sort((a, b) => Number(b.precio) - Number(a.precio));
+  }
 
+  contenedorproductos.innerHTML = ""; // Limpiar antes de mostrar filtrados
+  indiceInicio = 0; // Reiniciar para evitar errores visuales
+  cargarproductos(resultadoFinal, true); // ⚠️ nuevo segundo parámetro
+}
 
-    window.addEventListener("pageshow", function (event) {
-        const searchInput = document.getElementById("search");
-        searchInput.blur();
-        cargarproductos(productos); // Guardá una copia antes
+// Cargar los datos del JSON
+fetch("./src/productos.json")
+  .then(response => response.json())
+  .then(data => {
+    productos = data.productos;
+
+    // Inicializar Fuse una vez obtenidos los productos
+    fuse = new Fuse(productos, opciones);
+
+    // Setear filtros y eventos
+    const input = document.getElementById("search");
+    const categoria = document.getElementById("categoria");
+    const price = document.getElementById("price");
+
+    price.value = "MENORAMAYOR";
+    actulizarproductos();
+
+    input.addEventListener("input", actulizarproductos);
+    categoria.addEventListener("change", actulizarproductos);
+    price.addEventListener("change", actulizarproductos);
+
+    // Manejar regreso desde el historial
+    window.addEventListener("pageshow", function () {
+      const searchInput = document.getElementById("search");
+      searchInput.blur();
+      cargarproductos(productos);
     });
-     
-    }})
-    .catch(error => console.error('Error al cargar los productos:', error));
+  })
+  .catch(error => console.error('Error al cargar los productos:', error));
 
 
 
-
+//contenedorproductos.innerHTML = ""; // Limpiar el contenedor antes de agregar nuevos productos
 
 const contenedorproductos = document.querySelector("#contenedor-productos");
 
-function cargarproductos(productos){
-    
-    console.log("comprobando producto en cargar productos ", productos)
-    const nuevosProductos = productos.slice(indiceInicio, indiceInicio + cantidadPorCarga);
-    console.log(nuevosProductos, "nuevos productos log")
-    nuevosProductos.forEach( item  => {
+function cargarproductos(productosParaCargar, resetIndice = false) {
+  if (resetIndice) {
+    indiceInicio = 0;
+    contenedorproductos.innerHTML = ""; // Limpiar solo si es filtrado
+  }
+
+  const nuevosProductos = productosParaCargar.slice(indiceInicio, indiceInicio + cantidadPorCarga);
+
+  nuevosProductos.map(item => {
     const div = document.createElement("div");
     div.classList.add("producto");
     div.innerHTML = `
-
-        <img class="producto-imagen" src="./src/image/${item.image}" alt="${item.nombre}">
-        <div class="producto-info">
-            <h3 class="producto-nombre">${item.nombre}</h3>
-            <p>Tipo : ${item.nombre2}</p>
-            <p>Precio: ${item.precio} Gs.</p>
-            
-        </div>
+      <img class="producto-imagen" src="./src/image/${item.image}" alt="${item.nombre}">
+      <div class="producto-info">
+        <h3 class="producto-nombre">${item.nombre}</h3>
+        <p>Tipo : ${item.nombre2}</p>
+        <p>Precio: ${item.precio} Gs.</p>
+      </div>
     `;
-    
     div.onclick = () => {
-        const searchInput = document.getElementById("search");
-        searchInput.value = "";
-        searchInput.blur();
-        cargarproductos(productos);
-        
-        window.location.href = `producto-detallado.html?id=${item.id}`;
-        
+      const searchInput = document.getElementById("search");
+      searchInput.value = "";
+      searchInput.blur();
+      window.location.href = `producto-detallado.html?id=${item.id}`;
     };
-    
     contenedorproductos.appendChild(div);
-    });
-    indiceInicio += cantidadPorCarga;
-    if (indiceInicio >= productos.length) {
-    boton.style.display = "none";
-    }
+  });
 
+  indiceInicio += cantidadPorCarga;
+
+  if (indiceInicio >= productosParaCargar.length) {
+    boton.style.display = "none";
+  } else {
+    boton.style.display = "block";
+  }
 }
-boton.addEventListener("click", () => cargarproductos(productos));
+boton.addEventListener("click", () => {
+  cargarproductos(resultadoFinal); // sin reset
+})
   
     
     
