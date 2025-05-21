@@ -43,6 +43,7 @@ function actulizarproductos() {
 
   contenedorproductos.innerHTML = ""; // Limpiar antes de mostrar filtrados
   indiceInicio = 0; // Reiniciar para evitar errores visuales
+  console.log(resultadoFinal)
   cargarproductos(resultadoFinal, true); // ⚠️ nuevo segundo parámetro
 }
 
@@ -71,7 +72,7 @@ fetch("./src/productos.json")
     window.addEventListener("pageshow", function () {
       const searchInput = document.getElementById("search");
       searchInput.blur();
-      cargarproductos(productos);
+      cargarproductos(resultadoFinal, true);
     });
   })
   .catch(error => console.error('Error al cargar los productos:', error));
@@ -89,7 +90,7 @@ function cargarproductos(productosParaCargar, resetIndice = false) {
   }
 
   const nuevosProductos = productosParaCargar.slice(indiceInicio, indiceInicio + cantidadPorCarga);
-
+  console.log(nuevosProductos,"nuevos productos")
   nuevosProductos.map(item => {
     const div = document.createElement("div");
     div.classList.add("producto");
@@ -119,7 +120,8 @@ function cargarproductos(productosParaCargar, resetIndice = false) {
   }
 }
 boton.addEventListener("click", () => {
-  cargarproductos(resultadoFinal); // sin reset
+  cargarproductos(resultadoFinal);
+  console.log("boton precionado") // sin reset
 })
   
     
